@@ -3,13 +3,13 @@ var EH = require("express-handlebars");
 var Mongoose = require("mongoose");
 var Cheerio = require("cheerio");
 var Axios = require("axios");
+var request = require("request");
 
-request("http://www.theonion.com/", function(error, response, html) {
-    if (error) {
-        console.log("ERROR: " + error);
-    }
-    else {
-        var $ = cheerio.load(html);
-    }
+// Requiring note and article models
+var Note = require("./models/note.js");
+var Article = require("./models/index.js");
 
-});
+var port = process.env.PORT || 3000;
+app.listen(PORT, function () {
+    console.log(`Listening on http://localhost:${PORT}`);
+  });
